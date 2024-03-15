@@ -2,8 +2,48 @@
 // import {Navbar} from 'react-daisyui';
 // import '../../../public/image'
 
+import { useState } from 'react';
 import '../../App.css'
+import ShowCard from '../ShowCard/ShowCard';
+import { useEffect } from 'react';
+
+
 const Design = () => {
+    const [cards, setCards] = useState([]);
+
+    const [recipe, setRecipe] = useState([]);
+
+    useEffect(() => {
+        const url = '../../../public/Data.json';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setCards(data))
+    }, [])
+
+    const handlePreparing = (pre) => {
+        // console.log('kam sara' + pre);
+
+        const Available = recipe.find((p) => p.recipe_id == pre.recipe_id);
+    
+        if (!Available) {
+            setRecipe([...recipe, pre])
+        } else {
+          alert("Cart already exists");
+        }
+    }
+
+    // const handleCart = (product) => {
+
+    //     const isExists = cart.find((p) => p.id == product.id);
+    
+    //     if (!isExists) {
+    //       setCart([...cart, product]);
+    //     } else {
+    //       alert("Cart already exists");
+    //     }
+    //   };
+
+
     return (
         <div className="font-lexend">
             <header className='max-w-[1320px] mx-auto'>
@@ -96,46 +136,17 @@ const Design = () => {
                     {/* all card */}
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         {/* single card */}
-                        <div className='border-2 border-[#28282833] rounded-2xl p-6'>
-                            <img className='rounded-2xl w-full' src="../../../public/image/food.png" alt="" />
-                            <h4 className='mt-6 text-2xl font-semibold text-[#282828]'>Spaghetti Bolognese</h4>
-                            <p className='text-[#878787] my-4'>Classic Italian pasta dish with savory <br /> meat sauce.</p>
-                            
-                            <div className="divider"></div>
-                                {/*  */}
-                            <h4 className='text-lg font-medium mt-6 mb-4'>Ingredients: 6</h4>
-                            <ol className='text-[#878787] space-y-2'>
-                                <li>500g ground beef</li>
-                                <li>onion, chopped</li>
-                                <li>cloves garlic, minced</li>
-                            </ol>
-                            <div className="divider mt-4 mb-6"></div>
-                                {/*  */}
-                            <div className='flex my-6 gap-7'>
-                                <p className='flex gap-3'>
-                                    <span><img src="../../../public/image/clock.png" alt="" /></span>
-
-                                    <span>30 minutes</span>
-                                </p>
-                                <p className='flex gap-3'>
-                                    <span><img src="../../../public/image/cook.png" alt="" /></span>
-
-                                    <span>600 calories</span>
-                                </p>
-
-                            </div>
-
-                            
-                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold ">Want to Cook</button>
-                        </div>
+                        {
+                            cards.map(card => <ShowCard displayCard={card} handlePreparing={handlePreparing} key={card.recipe_id} ></ShowCard>)
+                        }
                         {/* single card */}
-                        <div className='border-2 border-[#28282833] rounded-2xl p-6'>
+                        {/* <div className='border-2 border-[#28282833] rounded-2xl p-6'>
                             <img className='rounded-2xl w-full' src="../../../public/image/food.png" alt="" />
                             <h4 className='mt-6 text-2xl font-semibold text-[#282828]'>Spaghetti Bolognese</h4>
                             <p className='text-[#878787] my-4'>Classic Italian pasta dish with savory <br /> meat sauce.</p>
                             
                             <div className="divider"></div>
-                                {/*  */}
+                                
                             <h4 className='text-lg font-medium mt-6 mb-4'>Ingredients: 6</h4>
                             <ol className='text-[#878787] space-y-2'>
                                 <li>500g ground beef</li>
@@ -143,7 +154,7 @@ const Design = () => {
                                 <li>cloves garlic, minced</li>
                             </ol>
                             <div className="divider mt-4 mb-6"></div>
-                                {/*  */}
+                                
                             <div className='flex my-6 gap-7'>
                                 <p className='flex gap-3'>
                                     <span><img src="../../../public/image/clock.png" alt="" /></span>
@@ -160,7 +171,7 @@ const Design = () => {
 
                             
                             <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold ">Want to Cook</button>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* recipe show */}
@@ -175,18 +186,28 @@ const Design = () => {
                                 <p>Calories</p>
                             </div>
 
-                            <div className='flex justify-around list-none gap-6 bg-[#28282808] p-6'>
-                                <li>1</li>
-                                <li>Chicken Caesar <br /> Salad</li>
-                                <li>20 <br /> minutes</li>
-                                <li>400 <br /> calories</li>
-                                <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold ">Preparing</button>
+                            <div>
+                                {
+                                    recipe.map((item, index) => (
+                                        console.log(item),
+
+                                        <div key={item.recipe_name} className='flex justify-around list-none gap-6 bg-[#28282808] p-6'>
+                                            
+                                            <li>{index+1}</li>
+                                            <li>{item.recipe_name}</li>
+                                            <li>{item.preparing_time} minutes</li>
+                                            <li>{item.calories} calories</li>
+
+                                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold ">Preparing</button>
+                                        </div>
+                                    ))
+                                }
                             </div>
 
                         </div>
 
                         {/* div 2 */}
-                        
+
                         <div className='mt-8'>
                             <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Currently cooking: 02</h2>
 
@@ -201,7 +222,7 @@ const Design = () => {
                                 <li>Spaghetti Bolognese</li>
                                 <li>20 <br /> minutes</li>
                                 <li>400 <br /> calories</li>
-                                
+
                             </div>
 
                             {/*  */}
