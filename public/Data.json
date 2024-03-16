@@ -1,92 +1,98 @@
 [
-    {
-      "recipe_image": "https://www.momontimeout.com/wp-content/uploads/2016/04/easy-fluffy-butterilk-pancakes-title.jpg",
-      "recipe_id": 1,
-      "recipe_name": "Chicken Stir Fry",
-      "short_description": "A quick and easy stir fry with chicken, vegetables, and a savory sauce.",
-      "ingredients": [
-        "550 g chicken breast, sliced",
-        "2 tbsp soy sauce",
-        "1 tbsp brown sugar",
-        "1 tbsp cornstarch"
-        
-      ],
-      "preparing_time": 20,
-      "calories": 400
-    },
-    {
-      "recipe_image": "https://www.momontimeout.com/wp-content/uploads/2018/11/chicken-stir-fry-733x1103.jpg",
-      "recipe_id": 2,
-      "recipe_name": "Pasta Primavera",
-      "short_description": "A light and flavorful pasta dish with fresh vegetables and a creamy sauce.",
-      "ingredients": [
-        "300 g pasta (penne)",
-        "1 tbsp olive oil",
-        "1 onion, chopped",
-        "2 cloves garlic, minced"
-        
-      ],
-      "preparing_time": 30,
-      "calories": 500
-    },
-    {
-      "recipe_image": "recipe3.jpg",
-      "recipe_id": 3,
-      "recipe_name": "Black Bean Burgers",
-      "short_description": "A delicious and healthy vegetarian burger with black beans, corn, and spices.",
-      "ingredients": [
-        "1 can (15 oz) black beans, rinsed and drained",
-        "1 cup cooked corn",
-        "1/2 cup breadcrumbs",
-        "1/4 cup chopped red onion"
-        
-      ],
-      "preparing_time": 25,
-      "calories": 350
-    },
-    {
-      "recipe_image": "recipe4.jpg",
-      "recipe_id": 4,
-      "recipe_name": "Chicken Fajitas",
-      "short_description": "A classic Mexican dish with marinated chicken, peppers, and onions served on warm tortillas.",
-      "ingredients": [
-        "1 kg boneless, skinless chicken breasts, sliced",
-        "1/4 cup olive oil",
-        "2 tbsp lime juice",
-        "1 tbsp chili powder"
-        
-      ],
-      "preparing_time": 30,
-      "calories": 550
-    },
-    {
-      "recipe_image": "recipe5.jpg",
-      "recipe_id": 5,
-      "recipe_name": "Apple Crisp",
-      "short_description": "A warm and comforting dessert with apples, cinnamon, and a crumble topping.",
-      "ingredients": [
-        "6 apples, peeled and sliced",
-        "1/4 cup sugar",
-        "2 tbsp cornstarch",
-        "1 tsp ground cinnamon"
-        
-      ],
-      "preparing_time": 45,
-      "calories": 300
-    },
-    {
-        "recipe_image": "recipe6.jpg",
-        "recipe_id": 6,
-        "recipe_name": "Chocolate Chip Cookies",
-        "short_description": "A classic chewy cookie with chocolate chips.",
-        "ingredients": [
-          "1 cup (2 sticks) unsalted butter, softened",
-          "1 cup granulated sugar",
-          "1 cup packed light brown sugar",
-          "2 large eggs"
-          
-        ],
-        "preparing_time": 20,
-        "calories": 230 
-      }
+  {
+    "recipe_image": "https://i.ibb.co/1qGxBDG/fry.jpg",
+    "recipe_id": 1,
+    "recipe_name": "Chicken Stir Fry",
+    "short_description": "A quick and easy stir fry with chicken, vegetables, and a savory sauce.",
+    "ingredients": [
+      "550 g chicken breast, sliced",
+      "2 tbsp soy sauce",
+      "1 tbsp brown sugar",
+      "1 tbsp cornstarch",
+      "1 tbsp vegetable oil",
+      "2 bell peppers, sliced"
+    ],
+    "preparing_time": 20,
+    "calories": 400
+  },
+  {
+    "recipe_image": "https://i.ibb.co/2q35SZr/pasta.jpg",
+    "recipe_id": 2,
+    "recipe_name": "Pasta Primavera",
+    "short_description": "A light and flavorful pasta dish with fresh vegetables and a creamy sauce.",
+    "ingredients": [
+      "300 g pasta (penne)",
+      "1 tbsp olive oil",
+      "1 onion, chopped",
+      "2 cloves garlic, minced",
+      "1 red bell pepper, chopped",
+      "1 zucchini, chopped"
+    ],
+    "preparing_time": 30,
+    "calories": 500
+  },
+  {
+    "recipe_image": "https://i.ibb.co/mSFx9Mf/burger.jpg",
+    "recipe_id": 3,
+    "recipe_name": "Bean Burgers",
+    "short_description": "A delicious and healthy vegetarian burger with black beans, corn, and spices.",
+    "ingredients": [
+      "1 can (15 oz) black beans, rinsed and drained",
+      "1 cup cooked corn",
+      "1/2 cup breadcrumbs",
+      "1/4 cup chopped red onion",
+      "1 egg, beaten",
+      "1 tbsp chili powder"
+    ],
+    "preparing_time": 25,
+    "calories": 350
+  },
+  {
+    "recipe_image": "https://i.ibb.co/Kx32QpK/chicken.jpg",
+    "recipe_id": 4,
+    "recipe_name": "Chicken Fajitas",
+    "short_description": "A classic Mexican dish with marinated chicken, peppers, and onions served on warm tortillas.",
+    "ingredients": [
+      "1 kg boneless, skinless chicken breasts, sliced",
+      "1/4 cup olive oil",
+      "2 tbsp lime juice",
+      "1 tbsp chili powder",
+      "1 tsp cumin",
+      "1/2 tsp smoked paprika"
+    ],
+    "preparing_time": 30,
+    "calories": 550
+  },
+  {
+    "recipe_image": "https://i.ibb.co/M69VsWQ/Apple.jpg",
+    "recipe_id": 5,
+    "recipe_name": "Apple Crisp",
+    "short_description": "A warm and comforting dessert with apples, cinnamon, and a crumble topping.",
+    "ingredients": [
+      "6 apples, peeled and sliced",
+      "1/4 cup sugar",
+      "2 tbsp cornstarch",
+      "1 tsp ground cinnamon",
+      "1/2 cup rolled oats",
+      "1/2 cup all-purpose flour"
+    ],
+    "preparing_time": 45,
+    "calories": 300
+  },
+  {
+    "recipe_image": "https://i.ibb.co/Q7BzFNt/Cookie.jpg",
+    "recipe_id": 6,
+    "recipe_name": "Chip Cookies",
+    "short_description": "A classic chewy cookie with chocolate chips.",
+    "ingredients": [
+      "1 cup (2 sticks) unsalted butter, softened",
+      "1 cup granulated sugar",
+      "1 cup packed light brown sugar",
+      "2 large eggs",
+      "2 teaspoons pure vanilla extract",
+      "2 ¾ cups all-purpose flour"
+    ],
+    "preparing_time": 20,
+    "calories": 230
+  }
 ]

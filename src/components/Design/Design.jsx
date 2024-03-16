@@ -6,12 +6,23 @@ import { useState } from 'react';
 import '../../App.css'
 import ShowCard from '../ShowCard/ShowCard';
 import { useEffect } from 'react';
+// toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import Cooking from '../Cooking/Cooking';
+
 
 
 const Design = () => {
+    // let Length = 0;
+
+
     const [cards, setCards] = useState([]);
 
     const [recipe, setRecipe] = useState([]);
+
+    // for cooking 
+    const [cooking, setCooking] = useState([]);
 
     useEffect(() => {
         const url = '../../../public/Data.json';
@@ -20,29 +31,60 @@ const Design = () => {
             .then(data => setCards(data))
     }, [])
 
+
+
     const handlePreparing = (pre) => {
         // console.log('kam sara' + pre);
 
         const Available = recipe.find((p) => p.recipe_id == pre.recipe_id);
-    
+
         if (!Available) {
             setRecipe([...recipe, pre])
-        } else {
-          alert("Cart already exists");
+        }
+        else {
+            // toast
+            toast('i am coming')
         }
     }
+
+    // const handleDelete = (id) => {
+    //     console.log(id);
+        
+    // }
+
+
+    const [time, setTime] = useState(0);
+    const [calory, setCalory] = useState(0);
 
     // const handleCart = (product) => {
 
     //     const isExists = cart.find((p) => p.id == product.id);
-    
+
     //     if (!isExists) {
     //       setCart([...cart, product]);
     //     } else {
     //       alert("Cart already exists");
     //     }
     //   };
+    const showRecipe = (cook, t, calories, myId) => {
+        // console.log('showing Recipe', cooking);
+        setCooking([...cooking, cook]);
+        // console.log(setCooking);
+        // handleDelete()
+        // for time
+        const newTime = time + t;
+        setTime(newTime)
 
+        // for calories
+        const newCalory = calory + calories;
+        setCalory(newCalory)
+
+        console.log(84,myId);
+
+        // const newArray = cooking.filter(item => item.id !== myId)
+        // setCooking(newArray)
+        
+    }
 
     return (
         <div className="font-lexend">
@@ -126,6 +168,8 @@ const Design = () => {
                 </section>
             </header>
 
+
+
             <main className='max-w-[1320px] mx-auto mb-24'>
                 <div className='text-center w-2/4 mx-auto space-y-6 mb-12'>
                     <h2 className='text-4xl font-semibold'>Our Recipes</h2>
@@ -177,8 +221,10 @@ const Design = () => {
                     {/* recipe show */}
                     <div className=' border-2 border-[#28282833] rounded-2xl p-6'>
                         {/* div 1 */}
+
                         <div >
-                            <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Want to cook: 01</h2>
+                            <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Want to cook: <span id='Length'>{recipe.length}
+                            </span></h2>
 
                             <div className='flex justify-around mt-4 mb-6 '>
                                 <p>Name</p>
@@ -191,14 +237,26 @@ const Design = () => {
                                     recipe.map((item, index) => (
                                         console.log(item),
 
-                                        <div key={item.recipe_name} className='flex justify-around list-none gap-6 bg-[#28282808] p-6'>
-                                            
-                                            <li>{index+1}</li>
+                                        <div key={item.calories} className='flex justify-around list-none gap-6 bg-[#28282808] p-6'>
+                                            {/* toast */}
+                                            <ToastContainer></ToastContainer>
+                                            <li>{index + 1}</li>
                                             <li>{item.recipe_name}</li>
                                             <li>{item.preparing_time} minutes</li>
                                             <li>{item.calories} calories</li>
 
-                                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold ">Preparing</button>
+                                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold " onClick={() => {
+                                                showRecipe(item, item.preparing_time, item.calories, item.recipe_id)
+
+                                                
+                                            }}>Preparing</button>
+
+                                            {/* {cart.map((cp) => (
+                                                <>
+                                                    <p>{cp.title.slice(0, 25)}</p>
+                                                <button onClick={() => handleRemove(cp.id)}>remove</button>
+                                                </>
+                                            ))} */}
                                         </div>
                                     ))
                                 }
@@ -209,7 +267,7 @@ const Design = () => {
                         {/* div 2 */}
 
                         <div className='mt-8'>
-                            <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Currently cooking: 02</h2>
+                            <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Currently cooking: {cooking.length}</h2>
 
                             <div className='flex justify-around mt-4 mb-6'>
                                 <p>Name</p>
@@ -217,18 +275,39 @@ const Design = () => {
                                 <p>Calories</p>
                             </div>
 
-                            <div className='flex justify-around list-none gap-6 bg-[#28282808] p-6 mb-4'>
-                                <li>1</li>
+                            <div >
+                                {/* <div className='flex justify-around list-none gap-6 bg-[#28282808] p-6 mb-4'> */}
+
+                                {
+                                    cooking.map((item2, index) => (
+                                        console.log(item2),
+
+                                        <div key={index} className='flex justify-around list-none gap-6 bg-[#28282808] p-6 mb-4'>
+                                            {/* toast */}
+
+                                            <li>{index + 1}</li>
+                                            <li>{item2.recipe_name}</li>
+                                            <li>{item2.preparing_time} minutes</li>
+                                            <li>{item2.calories} calories</li>
+                                        </div>
+                                    ))
+                                }
+                                {/* <li>1</li>
                                 <li>Spaghetti Bolognese</li>
                                 <li>20 <br /> minutes</li>
-                                <li>400 <br /> calories</li>
+                                <li>400 <br /> calories</li> */}
+
+                                {/* <li>{item.recipe_name}</li>
+                                <li>{item.preparing_time} minutes</li>
+                                <li>{item.calories} calories</li> */}
+
 
                             </div>
 
                             {/*  */}
                             <div className='flex gap-5 justify-end'>
-                                <p>Total Time =<br /><span>45</span> minutes</p>
-                                <p>Total Calories =<br /><span>1050</span> Calories</p>
+                                <p>Total Time =<br /><span>{time}</span> minutes</p>
+                                <p>Total Calories =<br /><span>{calory}</span> Calories</p>
                             </div>
 
                         </div>

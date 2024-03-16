@@ -1,14 +1,23 @@
 // import React from 'react';
 import PropTypes from 'prop-types';
 
-const ShowCard = ({ displayCard, handlePreparing }) => {
+
+
+
+const ShowCard = ({ displayCard, handlePreparing}) => {
     // console.log(displayCard);
-    const { preparing_time, ingredients, calories, recipe_image, recipe_id, short_description, recipe_name
+    const { preparing_time, ingredients, calories, recipe_image, short_description, recipe_name
     } = displayCard;
 
     return (
+        // <ToastContainer />,
+
         <div className='border-2 border-[#28282833] rounded-2xl p-6'>
-            <img className='rounded-2xl w-full h-[200px]' src="https://sallysbakingaddiction.com/wp-content/uploads/2013/05/classic-chocolate-chip-cookies.jpg" alt="" />
+            {/* <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" /> */}
+
+            <div className='rounded-2xl w-full h-[200px] bg-center'  style={{ backgroundImage: `url(${recipe_image})` }}>
+                
+            </div>
             <h4 className='mt-6 text-2xl font-semibold text-[#282828]'>{recipe_name}</h4>
             <p className='text-[#878787] my-4'>{short_description}</p>
 
@@ -17,9 +26,9 @@ const ShowCard = ({ displayCard, handlePreparing }) => {
             <h4 className='text-lg font-medium mt-6 mb-4'>Ingredients: 6</h4>
             
             <div className='text-[#878787] space-y-2'>
-                <ol>
+                <ol className='list-disc ml-4'>
                 {
-                    ingredients.map((hi) => <li>{hi}</li>)
+                    ingredients.map((hi,index) => <li key={index}>{hi}</li>)
                     // <li>500g ground beef</li>
                     // <li>onion, chopped</li>
                     // <li>cloves garlic, minced</li>
@@ -47,6 +56,8 @@ const ShowCard = ({ displayCard, handlePreparing }) => {
 
 
             <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold " onClick={() => handlePreparing(displayCard)}>Want to Cook</button>
+
+            
         </div>
     );
 }
