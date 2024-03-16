@@ -19,7 +19,7 @@ const Design = () => {
 
     const [cards, setCards] = useState([]);
 
-    const [recipe, setRecipe] = useState([]);
+    
 
     // for cooking 
     const [cooking, setCooking] = useState([]);
@@ -47,30 +47,31 @@ const Design = () => {
         }
     }
 
-    // const handleDelete = (id) => {
-    //     console.log(id);
-        
-    // }
-
-
     const [time, setTime] = useState(0);
     const [calory, setCalory] = useState(0);
 
-    // const handleCart = (product) => {
 
-    //     const isExists = cart.find((p) => p.id == product.id);
+    const [recipe, setRecipe] = useState([]);
 
-    //     if (!isExists) {
-    //       setCart([...cart, product]);
-    //     } else {
-    //       alert("Cart already exists");
-    //     }
-    //   };
-    const showRecipe = (cook, t, calories, myId) => {
-        // console.log('showing Recipe', cooking);
+
+    // const [recipe2, setRecipe2] = useState([]);
+    function handleRecipeClick(item) {
+        showRecipe(item, item.preparing_time, item.calories);
+        
+        handleDelete(item.recipe_id);
+    }
+    
+    
+    const handleDelete = (id) => {
+        
+        const newArray = recipe.filter(item => item.recipe_id !== id )
+        setRecipe(newArray);
+    }
+
+    const showRecipe = (cook, t, calories) => {
+        console.log(cook);
         setCooking([...cooking, cook]);
-        // console.log(setCooking);
-        // handleDelete()
+        
         // for time
         const newTime = time + t;
         setTime(newTime)
@@ -79,12 +80,9 @@ const Design = () => {
         const newCalory = calory + calories;
         setCalory(newCalory)
 
-        console.log(84,myId);
-
-        // const newArray = cooking.filter(item => item.id !== myId)
-        // setCooking(newArray)
-        
     }
+
+    
 
     return (
         <div className="font-lexend">
@@ -245,11 +243,7 @@ const Design = () => {
                                             <li>{item.preparing_time} minutes</li>
                                             <li>{item.calories} calories</li>
 
-                                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold " onClick={() => {
-                                                showRecipe(item, item.preparing_time, item.calories, item.recipe_id)
-
-                                                
-                                            }}>Preparing</button>
+                                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold " onClick={() => handleRecipeClick(item)}>Preparing</button>
 
                                             {/* {cart.map((cp) => (
                                                 <>
