@@ -1,6 +1,4 @@
-// import React from 'react';
-// import {Navbar} from 'react-daisyui';
-// import '../../../public/image'
+
 
 import { useState } from 'react';
 import '../../App.css'
@@ -9,7 +7,7 @@ import { useEffect } from 'react';
 // toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Cooking from '../Cooking/Cooking';
+
 
 
 
@@ -43,7 +41,7 @@ const Design = () => {
         }
         else {
             // toast
-            toast('i am coming')
+            toast('Already Exist')
         }
     }
 
@@ -69,7 +67,7 @@ const Design = () => {
     }
 
     const showRecipe = (cook, t, calories) => {
-        console.log(cook);
+        
         setCooking([...cooking, cook]);
         
         // for time
@@ -101,7 +99,7 @@ const Design = () => {
                                 <li><a>Search</a></li>
                             </ul>
                         </div>
-                        <a className="btn btn-ghost text-3xl font-bold">Recipe Calories</a>
+                        <a className="btn btn-ghost text-3xl font-bold">ALL<span className='text-[#0BE58A]'>R</span>ECIPES</a>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 text-[#150B2BB3]">
@@ -131,14 +129,7 @@ const Design = () => {
                                 </div>
                             </div>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                {/* <li>
-                                    <a className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </a>
-                                </li>
-                                <li><a>Settings</a></li>
-                                <li><a>Logout</a></li> */}
+                                
                             </ul>
                         </div>
                     </div>
@@ -151,7 +142,7 @@ const Design = () => {
                             <div className="max-w-lg">
                                 <h1 className=" text-5xl font-bold">Discover an exceptional cooking class tailored for you!</h1>
 
-                                <p className="mt-6 mb-10">Learn and Master Basic Programming, Data Structures, Algorithm, OOP, Database and solve 500+ coding problems to become an exceptionally well world-class Programmer.</p>
+                                <p className="mt-6 mb-10">We especially like the ‘Entertaining’ section, with ideas for every kind of party.</p>
 
                                 <div >
                                     <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold mr-8">Explore Now</button>
@@ -171,7 +162,7 @@ const Design = () => {
             <main className='max-w-[1320px] mx-auto mb-24'>
                 <div className='text-center w-2/4 mx-auto space-y-6 mb-12'>
                     <h2 className='text-4xl font-semibold'>Our Recipes</h2>
-                    <p className='text-[#150B2B99]'>Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus vulputate netus pharetra rhoncus. Eget urna volutpat curabitur elementum mauris aenean neque. </p>
+                    <p className='text-[#150B2B99]'>You know that feeling when you are eating your own home-made dish and it feels like you are in a restaurant.</p>
                 </div>
                 {/* recipe show main */}
                 <div className='flex flex-col md:flex-row gap-6'>
@@ -181,39 +172,7 @@ const Design = () => {
                         {
                             cards.map(card => <ShowCard displayCard={card} handlePreparing={handlePreparing} key={card.recipe_id} ></ShowCard>)
                         }
-                        {/* single card */}
-                        {/* <div className='border-2 border-[#28282833] rounded-2xl p-6'>
-                            <img className='rounded-2xl w-full' src="../../../public/image/food.png" alt="" />
-                            <h4 className='mt-6 text-2xl font-semibold text-[#282828]'>Spaghetti Bolognese</h4>
-                            <p className='text-[#878787] my-4'>Classic Italian pasta dish with savory <br /> meat sauce.</p>
-                            
-                            <div className="divider"></div>
-                                
-                            <h4 className='text-lg font-medium mt-6 mb-4'>Ingredients: 6</h4>
-                            <ol className='text-[#878787] space-y-2'>
-                                <li>500g ground beef</li>
-                                <li>onion, chopped</li>
-                                <li>cloves garlic, minced</li>
-                            </ol>
-                            <div className="divider mt-4 mb-6"></div>
-                                
-                            <div className='flex my-6 gap-7'>
-                                <p className='flex gap-3'>
-                                    <span><img src="../../../public/image/clock.png" alt="" /></span>
-
-                                    <span>30 minutes</span>
-                                </p>
-                                <p className='flex gap-3'>
-                                    <span><img src="../../../public/image/cook.png" alt="" /></span>
-
-                                    <span>600 calories</span>
-                                </p>
-
-                            </div>
-
-                            
-                            <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold ">Want to Cook</button>
-                        </div> */}
+                        
                     </div>
 
                     {/* recipe show */}
@@ -245,12 +204,6 @@ const Design = () => {
 
                                             <button className="rounded-[50px] text-black bg-[#0BE58A] py-1 px-3 text-lg font-semibold " onClick={() => handleRecipeClick(item)}>Preparing</button>
 
-                                            {/* {cart.map((cp) => (
-                                                <>
-                                                    <p>{cp.title.slice(0, 25)}</p>
-                                                <button onClick={() => handleRemove(cp.id)}>remove</button>
-                                                </>
-                                            ))} */}
                                         </div>
                                     ))
                                 }
@@ -270,8 +223,7 @@ const Design = () => {
                             </div>
 
                             <div >
-                                {/* <div className='flex justify-around list-none gap-6 bg-[#28282808] p-6 mb-4'> */}
-
+                                
                                 {
                                     cooking.map((item2, index) => (
                                         console.log(item2),
@@ -286,22 +238,13 @@ const Design = () => {
                                         </div>
                                     ))
                                 }
-                                {/* <li>1</li>
-                                <li>Spaghetti Bolognese</li>
-                                <li>20 <br /> minutes</li>
-                                <li>400 <br /> calories</li> */}
-
-                                {/* <li>{item.recipe_name}</li>
-                                <li>{item.preparing_time} minutes</li>
-                                <li>{item.calories} calories</li> */}
-
-
+                               
                             </div>
 
                             {/*  */}
                             <div className='flex gap-5 justify-end'>
-                                <p>Total Time =<br /><span>{time}</span> minutes</p>
-                                <p>Total Calories =<br /><span>{calory}</span> Calories</p>
+                                <p>Total Time =<br /><span className='bg-[#0BE58A] p-1 rounded-md'>{time}</span> minutes</p>
+                                <p>Total Calories =<br /><span  className='bg-[#0BE58A] p-1 rounded-md'>{calory}</span> Calories</p>
                             </div>
 
                         </div>

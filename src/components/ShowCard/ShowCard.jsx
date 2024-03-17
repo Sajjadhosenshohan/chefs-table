@@ -12,7 +12,7 @@ const ShowCard = ({ displayCard, handlePreparing}) => {
     return (
         // <ToastContainer />,
 
-        <div className='border-2 border-[#28282833] rounded-2xl p-6'>
+        <div className='border-2 border-[#28282833] rounded-2xl p-6 h-[800px]'>
             {/* <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" /> */}
 
             <div className='rounded-2xl w-full h-[200px] bg-center'  style={{ backgroundImage: `url(${recipe_image})` }}>
@@ -29,9 +29,6 @@ const ShowCard = ({ displayCard, handlePreparing}) => {
                 <ol className='list-disc ml-4'>
                 {
                     ingredients.map((hi,index) => <li key={index}>{hi}</li>)
-                    // <li>500g ground beef</li>
-                    // <li>onion, chopped</li>
-                    // <li>cloves garlic, minced</li>
                     
                 }
                 </ol>
