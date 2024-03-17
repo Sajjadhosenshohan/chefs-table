@@ -12,11 +12,11 @@ const ShowCard = ({ displayCard, handlePreparing}) => {
     return (
         // <ToastContainer />,
 
-        <div className='border-2 border-[#28282833] rounded-2xl p-6 h-[800px]'>
+        <div className='border-2 border-[#28282833] rounded-2xl p-2 '>
             {/* <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" /> */}
-
-            <div className='rounded-2xl w-full h-[200px] bg-center'  style={{ backgroundImage: `url(${recipe_image})` }}>
-                
+            
+            <div className='rounded-2xl w-full h-[200px] bg-center'>
+                <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" />
             </div>
             <h4 className='mt-6 text-2xl font-semibold text-[#282828]'>{recipe_name}</h4>
             <p className='text-[#878787] my-4'>{short_description}</p>
@@ -52,7 +52,7 @@ const ShowCard = ({ displayCard, handlePreparing}) => {
             </div>
 
 
-            <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold " onClick={() => handlePreparing(displayCard)}>Want to Cook</button>
+            <button className="rounded-[50px] text-black bg-[#0BE58A] py-2 px-5 text-2xl font-semibold " onClick={() => handlePreparing(displayCard)}>Want to Cook</button>
 
             
         </div>

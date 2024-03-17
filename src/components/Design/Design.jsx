@@ -1,29 +1,26 @@
 
-
+// import React from 'react';
 import { useState } from 'react';
 import '../../App.css'
 import ShowCard from '../ShowCard/ShowCard';
 import { useEffect } from 'react';
+
 // toast
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import logo from '../../../public/image/profile.png';
 
 
 
 const Design = () => {
-    // let Length = 0;
-
-
+   
     const [cards, setCards] = useState([]);
-
     
-
-    // for cooking 
     const [cooking, setCooking] = useState([]);
 
     useEffect(() => {
-        const url = '../../../public/Data.json';
+        const url = './Data.json';
         fetch(url)
             .then(res => res.json())
             .then(data => setCards(data))
@@ -45,14 +42,12 @@ const Design = () => {
         }
     }
 
-    const [time, setTime] = useState(0);
-    const [calory, setCalory] = useState(0);
 
+    const [time, setTime] = useState(0);
+    const [calory, setCalory] = useState(0)
 
     const [recipe, setRecipe] = useState([]);
 
-
-    // const [recipe2, setRecipe2] = useState([]);
     function handleRecipeClick(item) {
         showRecipe(item, item.preparing_time, item.calories);
         
@@ -61,13 +56,11 @@ const Design = () => {
     
     
     const handleDelete = (id) => {
-        
         const newArray = recipe.filter(item => item.recipe_id !== id )
         setRecipe(newArray);
     }
 
     const showRecipe = (cook, t, calories) => {
-        
         setCooking([...cooking, cook]);
         
         // for time
@@ -84,7 +77,7 @@ const Design = () => {
 
     return (
         <div className="font-lexend">
-            <header className='max-w-[1320px] mx-auto'>
+            <header className='max-w-[82%] mx-auto'>
                 {/* navbar start */}
                 <div className="navbar bg-base-100 mb-12">
                     <div className="navbar-start">
@@ -125,7 +118,8 @@ const Design = () => {
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img alt="Tailwind CSS Navbar component" src="../../../public/image/profile.png" />
+                                    <img alt="Tailwind CSS Navbar component" 
+                                    src={logo}/>
                                 </div>
                             </div>
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
@@ -136,8 +130,10 @@ const Design = () => {
                 </div>
                 {/* hero section start */}
                 <section className='mb-[100px]'>
-                    <div className="hero h-[600px]" style={{ backgroundImage: 'url(../../../public/image/hero.png)' }}>
-                        <div className=""></div>
+                {/* url(../../../public/image/hero.png) */}
+                {/* style={{ backgroundImage: 'url(../../../public/image/hero.png)' }} */}
+                    <div className=" hero h-[600px] banner " >
+                        
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-lg">
                                 <h1 className=" text-5xl font-bold">Discover an exceptional cooking class tailored for you!</h1>
@@ -159,15 +155,15 @@ const Design = () => {
 
 
 
-            <main className='max-w-[1320px] mx-auto mb-24'>
-                <div className='text-center w-2/4 mx-auto space-y-6 mb-12'>
+            <main className='max-w-[82%] mx-auto mb-24'>
+                <div className='text-center  mx-auto space-y-6 mb-12'>
                     <h2 className='text-4xl font-semibold'>Our Recipes</h2>
                     <p className='text-[#150B2B99]'>You know that feeling when you are eating your own home-made dish and it feels like you are in a restaurant.</p>
                 </div>
                 {/* recipe show main */}
-                <div className='flex flex-col md:flex-row gap-6'>
+                <div className='flex justify-between flex-col md:flex-row gap-6'>
                     {/* all card */}
-                    <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                         {/* single card */}
                         {
                             cards.map(card => <ShowCard displayCard={card} handlePreparing={handlePreparing} key={card.recipe_id} ></ShowCard>)
@@ -176,14 +172,14 @@ const Design = () => {
                     </div>
 
                     {/* recipe show */}
-                    <div className=' border-2 border-[#28282833] rounded-2xl p-6'>
+                    <div className=' border-2 border-[#28282833] rounded-2xl p-3'>
                         {/* div 1 */}
 
                         <div >
                             <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Want to cook: <span id='Length'>{recipe.length}
                             </span></h2>
 
-                            <div className='flex justify-around mt-4 mb-6 '>
+                            <div className='flex justify-around mt-4 mb-6 gap-2'>
                                 <p>Name</p>
                                 <p>Time</p>
                                 <p>Calories</p>
@@ -216,7 +212,7 @@ const Design = () => {
                         <div className='mt-8'>
                             <h2 className='border-b-2 text-center text-2xl font-semibold p-4'>Currently cooking: {cooking.length}</h2>
 
-                            <div className='flex justify-around mt-4 mb-6'>
+                            <div className='flex justify-around mt-4 mb-6 gap-2'>
                                 <p>Name</p>
                                 <p>Time</p>
                                 <p>Calories</p>

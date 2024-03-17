@@ -1,3 +1,10 @@
 .font-lexend{
     font-family: "Lexend", sans-serif;
 }
+.banner{
+    height: 600px; 
+    background-image: url("../public/image/hero.png"); 
+    background-size: cover; 
+    background-position: center;
+    border-radius: 25px;
+}
