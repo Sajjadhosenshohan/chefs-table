@@ -2,8 +2,9 @@
 // import React from 'react';
 import { useState } from 'react';
 import '../../App.css'
-import ShowCard from '../ShowCard/ShowCard';
 import { useEffect } from 'react';
+
+import ShowCard from '../ShowCard/ShowCard';
 
 // toast
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,8 +18,6 @@ const Design = () => {
    
     const [cards, setCards] = useState([]);
     
-    const [cooking, setCooking] = useState([]);
-
     useEffect(() => {
         const url = './Data.json';
         fetch(url)
@@ -26,11 +25,7 @@ const Design = () => {
             .then(data => setCards(data))
     }, [])
 
-
-
     const handlePreparing = (pre) => {
-        // console.log('kam sara' + pre);
-
         const Available = recipe.find((p) => p.recipe_id == pre.recipe_id);
 
         if (!Available) {
@@ -42,23 +37,33 @@ const Design = () => {
         }
     }
 
+    
 
-    const [time, setTime] = useState(0);
-    const [calory, setCalory] = useState(0)
+    
 
     const [recipe, setRecipe] = useState([]);
 
-    function handleRecipeClick(item) {
-        showRecipe(item, item.preparing_time, item.calories);
-        
-        handleDelete(item.recipe_id);
-    }
+    
     
     
     const handleDelete = (id) => {
         const newArray = recipe.filter(item => item.recipe_id !== id )
         setRecipe(newArray);
     }
+
+    function handleRecipeClick(item) {
+        // its for show in Currently cooking
+        showRecipe(item, item.preparing_time, item.calories);
+
+        // its for delete item
+        handleDelete(item.recipe_id);
+    }
+
+    const [cooking, setCooking] = useState([]);
+    const [time, setTime] = useState(0);
+    const [calory, setCalory] = useState(0)
+
+
 
     const showRecipe = (cook, t, calories) => {
         setCooking([...cooking, cook]);
@@ -131,14 +136,14 @@ const Design = () => {
                 {/* hero section start */}
                 <section className='mb-[100px]'>
                 {/* url(../../../public/image/hero.png) */}
-                {/* style={{ backgroundImage: 'url(../../../public/image/hero.png)' }} */}
+                {/* style={{ backgroundImage: 'url()' }} */}
                     <div className=" hero h-[600px] banner " >
                         
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-lg">
                                 <h1 className=" text-5xl font-bold">Discover an exceptional cooking class tailored for you!</h1>
 
-                                <p className="mt-6 mb-10">We especially like the ‘Entertaining’ section, with ideas for every kind of party.</p>
+                                <p className="mt-6 mb-10">We especially like the ‘Entertaining’ section with ideas for every kind of party.</p>
 
                                 <div >
                                     <button className="rounded-[50px] text-black bg-[#0BE58A] py-5 px-7 text-2xl font-semibold mr-8">Explore Now</button>
@@ -156,20 +161,26 @@ const Design = () => {
 
 
             <main className='max-w-[82%] mx-auto mb-24'>
+
                 <div className='text-center  mx-auto space-y-6 mb-12'>
                     <h2 className='text-4xl font-semibold'>Our Recipes</h2>
                     <p className='text-[#150B2B99]'>You know that feeling when you are eating your own home-made dish and it feels like you are in a restaurant.</p>
                 </div>
-                {/* recipe show main */}
+
+                {/* Our Recipes*/}
                 <div className='flex justify-between flex-col md:flex-row gap-6'>
+
                     {/* all card */}
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
                         {/* single card */}
                         {
                             cards.map(card => <ShowCard displayCard={card} handlePreparing={handlePreparing} key={card.recipe_id} ></ShowCard>)
                         }
-                        
                     </div>
+
+
+
+
 
                     {/* recipe show */}
                     <div className=' border-2 border-[#28282833] rounded-2xl p-3'>
@@ -188,7 +199,7 @@ const Design = () => {
                             <div>
                                 {
                                     recipe.map((item, index) => (
-                                        console.log(item),
+                                        // console.log(item),
 
                                         <div key={item.calories} className='flex justify-around list-none gap-6 bg-[#28282808] p-6'>
                                             {/* toast */}

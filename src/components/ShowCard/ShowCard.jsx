@@ -10,10 +10,10 @@ const ShowCard = ({ displayCard, handlePreparing}) => {
     } = displayCard;
 
     return (
-        // <ToastContainer />,
+        
 
         <div className='border-2 border-[#28282833] rounded-2xl p-2 '>
-            {/* <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" /> */}
+            
             
             <div className='rounded-2xl w-full h-[200px] bg-center'>
                 <img className='rounded-2xl w-full h-[200px] bg-center' src={recipe_image} alt="" />
